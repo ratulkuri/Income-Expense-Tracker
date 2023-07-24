@@ -6,6 +6,7 @@ import StatItem from '../components/StatItem';
 import TransactionsTable from '../components/TransactionsTable';
 import moment from 'moment';
 import { Helmet } from 'react-helmet-async';
+import Empty from '../components/Empty';
 
 const Dashboard = () => {
     const [totalIncome, setTotalIncome] = useState(0);
@@ -48,8 +49,6 @@ const Dashboard = () => {
                 <title>Dashboard - Income & Expense Tracker</title>
             </Helmet>
 
-            <FloatingAddButton setList={setTransactionList} />
-
             <div className="flex justify-center mb-10">
                 <div className="stats stats-vertical lg:stats-horizontal shadow-lg border w-full max-w-6xl">
                     <StatItem
@@ -68,8 +67,15 @@ const Dashboard = () => {
             </div>
 
             {
-                !!transactionList && transactionList?.length > 0 &&
-                <TransactionsTable title="Transactons" transactionList={transactionList} />
+                !!transactionList &&
+                (
+                    transactionList?.length > 0
+                    ? <>
+                        <FloatingAddButton setList={setTransactionList} />
+                        <TransactionsTable title="Transactons" transactionList={transactionList} />
+                    </>
+                    : <Empty setList={setTransactionList} />
+                )
             }
         </>
     )
