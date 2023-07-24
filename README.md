@@ -7,8 +7,8 @@ This project, "Income & Expense Tracker," demonstrates the usage of React Router
 - [Income](#income)
 - [Expense](#expense)
 
-## [Demo]()
-You can view the live demo of the "Income & Expense Tracker" application by clicking [here]()
+## [Demo](https://assignment-modue-8.vercel.app/)
+You can view the live demo of the "Income & Expense Tracker" application by clicking [here](https://assignment-modue-8.vercel.app/)
 
 ## Dashboard
 The Dashboard page displays the total income and expense statistics and a table containing all transactions. Users can add new transactions for income or expenses using a floating button.
