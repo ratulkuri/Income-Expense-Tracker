@@ -15,8 +15,9 @@ const TransactionsTable = ({title, transactionList}) => {
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Date</th>
                                 <th>Description</th>
+                                <th className='text-center'>Date</th>
+                                <th className='text-center'>Time</th>
                                 <th className='text-center'>Type</th>
                                 <th className='text-center'>Amount</th>
                             </tr>
@@ -25,15 +26,16 @@ const TransactionsTable = ({title, transactionList}) => {
                             {
                                 transactionList?.map((item, index) => {
                                     return (
-                                        <tr key={item?.id}>
+                                        <tr key={item?.id} title={`${item?.type === "expense" ? "Expense" : "Income"}`}>
                                             <th>{index + 1}</th>
-                                            <td className='whitespace-nowrap'>{moment(item?.datetime, "YYYY-MM-DD HH:mm").format("DD MMM, YYYY | hh:mm a")}</td>
                                             <td>{item.desc}</td>
+                                            <td className='text-center whitespace-nowrap'>{moment(item?.datetime, "YYYY-MM-DD HH:mm").format("DD MMM, YYYY")}</td>
+                                            <td className='text-center whitespace-nowrap'>{moment(item?.datetime, "YYYY-MM-DD HH:mm").format("hh:mm a")}</td>
                                             <td className='text-center'>
                                                 {
                                                     item?.type === "expense" ?
-                                                    <ImArrowDown className='text-red-400 mx-auto' />
-                                                    : (item?.type === "income" && <ImArrowUp className='text-green-500 mx-auto' />)
+                                                    <ImArrowDown className='text-red-400 mx-auto' title='Expense' />
+                                                    : (item?.type === "income" && <ImArrowUp className='text-green-500 mx-auto' title='Income' />)
                                                 }
                                             </td>
                                             <td className={`text-center font-bold ${item?.type === "income" ? "text-green-500" : "text-red-500"} `}>{item?.ammount}</td>
