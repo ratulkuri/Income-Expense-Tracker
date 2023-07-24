@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 const NewTransactionForm = ({type, toggle, setList}) => {
     const [desc, setDesc] = useState("");
@@ -40,7 +41,8 @@ const NewTransactionForm = ({type, toggle, setList}) => {
             const list = !!localStorage.getItem("transactions") ? JSON.parse(localStorage.getItem("transactions")) : [];
             if(!!list) {
                 const newList = [...list, transaction];
-                localStorage.setItem("transactions", JSON.stringify(newList))
+                const sorted = newList.sort((a, b) => moment(b.datetime, "YYYY-MM-DD HH:mm").diff(moment(a.datetime, "YYYY-MM-DD HH:mm")))
+                localStorage.setItem("transactions", JSON.stringify(sorted))
                 setList(newList);
                 resetForm();
                 toggle();
