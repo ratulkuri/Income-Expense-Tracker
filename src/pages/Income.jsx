@@ -1,5 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaPlus } from 'react-icons/fa';
 import TransactionModal from "../components/TransactionModal";
 import TransactionsTable from "../components/TransactionsTable";
@@ -32,6 +33,10 @@ const Income = () => {
 
   return (
     <>
+        <Helmet>
+            <title>Income - Income & Expense Tracker</title>
+        </Helmet>
+
         <TransactionModal type={modalType} isOpen={modalIsOpen} toggle={handleModalToggle} setList={setAllTransactionList} />
         <button tabIndex={0} className="btn btn-circle btn-success btn-lg text-white m-1 fixed right-14 bottom-14" onClick={() => handleModalToggle("income")}>
             <FaPlus />

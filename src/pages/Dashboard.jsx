@@ -5,6 +5,7 @@ import FloatingAddButton from '../components/FloatingAddButton';
 import StatItem from '../components/StatItem';
 import TransactionsTable from '../components/TransactionsTable';
 import moment from 'moment';
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
     const [totalIncome, setTotalIncome] = useState(0);
@@ -43,6 +44,10 @@ const Dashboard = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Dashboard - Income & Expense Tracker</title>
+            </Helmet>
+
             <FloatingAddButton setList={setTransactionList} />
 
             <div className="flex justify-center mb-10">

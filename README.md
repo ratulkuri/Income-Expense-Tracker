@@ -1,8 +1,20 @@
-# React + Vite
+# Income & Expense Tracker (Assignment Module 8)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project, "Income & Expense Tracker," demonstrates the usage of React Router DOM to create a multi-page application. It allows users to track their income and expenses through a user-friendly dashboard and separate pages for income and expense transactions.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Dashboard](#dashboard)
+- [Income](#income)
+- [Expense](#expense)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## [Demo]()
+You can view the live demo of the "Income & Expense Tracker" application by clicking [here]()
+
+## Dashboard
+The Dashboard page displays the total income and expense statistics and a table containing all transactions. Users can add new transactions for income or expenses using a floating button.
+
+## Income
+The Income page displays all income transactions and allows users to add new income transactions using a floating button.
+
+## Expense
+The Expense page displays all expense transactions and enables users to add new expense transactions using a floating button.
